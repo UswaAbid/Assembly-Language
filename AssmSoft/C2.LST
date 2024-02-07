@@ -1,0 +1,13 @@
+     1                                  ; a program to add three numbers accessed using a single label
+     2                                  [org 0x0100]
+     3                                  
+     4 00000000 A1[1700]                    mov  ax, [num1]           
+     5 00000003 8B1E[1900]                  mov  bx, [num1 + 2]       
+     6 00000007 01D8                        add  ax, bx
+     7 00000009 8B1E[1B00]                  mov  bx, [num1 + 4]
+     8 0000000D 01D8                        add  ax, bx
+     9 0000000F A3[1D00]                    mov  [num1 + 6], ax
+    10 00000012 B8004C                      mov  ax, 0x4c00
+    11 00000015 CD21                        int  0x21
+    12                                  
+    13 00000017 05000A000F000000        num1:   dw  5,  10,  15,  0

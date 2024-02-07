@@ -1,0 +1,20 @@
+     1                                  [org 0x0100]
+     2                                  
+     3                                  ; start of code 
+     4                                  
+     5 00000000 B80500                  mov  ax, 5              ; move the constant 5 into register ax 
+     6 00000003 BB0A00                  mov  bx, 10             
+     7                                  
+     8 00000006 01D8                    add  ax, bx             ; add value of bx into the value of ax 
+     9                                  
+    10 00000008 BB0F00                  mov  bx, 15             ; add constant 15 into the value of bx 
+    11 0000000B 01D8                    add  ax, bx
+    12                                  
+    13 0000000D B8004C                  mov  ax, 0x4c00         ; exit .. 
+    14 00000010 CD21                    int  0x21               ; .. is what the OS should do for me
+    15                                  
+    16                                  
+    17                                  
+    18                                  
+    19                                  
+    20                                  ; watch the listing carefully 

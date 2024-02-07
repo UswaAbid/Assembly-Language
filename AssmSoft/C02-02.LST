@@ -1,0 +1,25 @@
+     1                                  [org 0x0100]
+     2                                  ; start of code 
+     3                                  
+     4                                  
+     5 00000000 A1[1700]                mov  ax, [value1]              ; move the constant 5 into register ax 
+     6 00000003 8B1E[1900]              mov  bx, [value2]              ; move the constant 10 into register bx
+     7                                  
+     8 00000007 01D8                    add  ax, bx                    ; add value of bx into the value of ax 
+     9                                  
+    10 00000009 8B1E[1B00]              mov  bx, [value3]              ; add constant 15 into the value of bx 
+    11 0000000D 01D8                    add  ax, bx                    ; add value of bx into the value of ax 
+    12 0000000F A3[1D00]                mov  [value4], ax              ; move the constant 0 into register ax 
+    13                                  
+    14 00000012 B8004C                  mov  ax, 0x4c00                ; exit .. 
+    15 00000015 CD21                    int  0x21                      ; .. is what the OS should do for me
+    16                                  
+    17                                  ;Labels
+    18 00000017 0500                    value1: dw   5
+    19 00000019 0A00                    value2: dw   10
+    20 0000001B 0F00                    value3: dw   15
+    21 0000001D 0000                    value4: dw   0
+    22                                  
+    23                                  
+    24                                  
+    25                                  ; watch the listing carefully 

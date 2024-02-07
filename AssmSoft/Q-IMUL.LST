@@ -1,0 +1,19 @@
+     1                                  
+     2                                  
+     3                                  [org 0x0100]
+     4                                  
+     5 00000000 E90600                  jmp start                                           
+     6 00000003 0200                    num1:   dw  2
+     7 00000005 0300                    num2:   dw  3
+     8 00000007 0000                    result: dw 0
+     9                                  
+    10                                  start:
+    11                                  ;Initialization
+    12                                  
+    13 00000009 A1[0300]                    mov ax, [num1]                                      
+    14 0000000C 8B1E[0500]                  mov bx, [num2]                    
+    15 00000010 0FAFC3                      imul ax, bx 
+    16                                  
+    17 00000013 A3[0700]                mov  [result], ax
+    18 00000016 B8004C                  mov ax, 0x4c00
+    19 00000019 CD21                    int  0x21

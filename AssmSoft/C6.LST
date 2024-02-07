@@ -1,0 +1,21 @@
+     1                                  
+     2                                  ;program to add three variables by using bytes variables
+     3                                  
+     4                                  [org 0x0100]
+     5                                  ; start of code 
+     6                                  
+     7                                  
+     8 00000000 A1[1700]                mov  ax, [num1]              
+     9 00000003 8B1E[1800]              mov  bx, [num1+1]              
+    10 00000007 01D8                    add  ax, bx                   
+    11                                  
+    12 00000009 8B1E[1900]              mov  bx, [num1+2]              
+    13 0000000D 01D8                    add  ax, bx 
+    14                                                     
+    15 0000000F A3[1A00]                mov  [num1+3], ax            
+    16 00000012 B8004C                  mov  ax, 0x4c00                 
+    17 00000015 CD21                    int  0x21                    
+    18                                  
+    19 00000017 050A0F00                num1: db 5, 10, 15, 0
+    20                                  
+    21                                  ; watch the listing carefully 

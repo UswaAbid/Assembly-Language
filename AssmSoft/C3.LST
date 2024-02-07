@@ -1,0 +1,21 @@
+     1                                  ; a program to add three numbers directly in memory
+     2                                  [org 0x0100]
+     3                                  
+     4 00000000 A1[1900]                    mov  ax, [num1]
+     5 00000003 A3[1F00]                    mov  [num1 + 6], ax    ; add this value to result 
+     6                                  
+     7 00000006 A1[1B00]                    mov  ax, [num1 + 2]
+     8 00000009 0106[1F00]                  add  [num1 + 6], ax
+     9                                  
+    10 0000000D A1[1D00]                    mov  ax, [num1 + 4]
+    11 00000010 0106[1F00]                  add  [num1+6], ax
+    12                                  
+    13 00000014 B8004C                      mov  ax, 0x4c00
+    14 00000017 CD21                        int  0x21
+    15                                  
+    16                                  
+    17 00000019 05000A000F000000        num1:   dw  5, 10, 15, 0 
+    18                                  
+    19                                  
+    20                                  ; should have the result separate! 
+    21                                  ; let's change that! 

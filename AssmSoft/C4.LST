@@ -1,0 +1,20 @@
+     1                                  ; a program to add three numbers using byte variables
+     2                                  [org 0x0100]
+     3                                  
+     4 00000000 A1[1700]                    mov  ax, [num1]
+     5                                  
+     6 00000003 8B1E[1800]                  mov  bx, [num1+1]
+     7 00000007 01D8                        add  ax, bx
+     8                                      
+     9 00000009 8B1E[1900]                  mov  bx, [num1+2]
+    10 0000000D 01D8                        add  ax, bx
+    11                                  
+    12 0000000F A3[1A00]                    mov  [num1+3], ax
+    13                                      
+    14 00000012 B8004C                      mov  ax, 0x4c00
+    15 00000015 CD21                        int  0x21
+    16                                  
+    17 00000017 050A0F00                num1: db  5, 10, 15, 0
+    18                                  
+    19                                  ; something's wrong with this code. 
+    20                                  ; let's figure out what that is! 

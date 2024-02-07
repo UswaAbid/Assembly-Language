@@ -1,0 +1,23 @@
+     1                                  ; Using loop in assembly language 
+     2                                  [org 0x0100]
+     3                                  ;Initialization
+     4                                  
+     5 00000000 31C0                        xor ax , ax            ;to empty the register incase any garbage value
+     6 00000002 B90300                      mov cx , 3
+     7 00000005 BB[1C00]                    mov bx , num1          ;moving num1 value 011C to bx
+     8                                        
+     9                                    Outerloop:
+    10                                  
+    11 00000008 0307                        add  ax, [bx]   ;adding value(at address [011C], [011E],[0120],[0122] in reg [BX] ,that is representing an address now, with value at register AX)
+    12 0000000A 81C30200                    add  bx , 2     ; jumping to 2 addresses onward 
+    13 0000000E 81E90100                    sub cx , 1      ; subtract 1
+    14 00000012 75F4                        jnz Outerloop   ; break condition of loop i.e JUMP IF NOT ZERO (if ZF != 0)
+    15                                      
+    16 00000014 A3[2400]                    mov  [result], ax
+    17 00000017 B8004C                      mov ax , 0x4c00
+    18 0000001A CD21                        int  0x21
+    19                                  
+    20 0000001C 05000A000F000000        num1:   dw  5,  10,  15,  0
+    21 00000024 0000                    result: dw 0
+    22                                  
+    23                                  
